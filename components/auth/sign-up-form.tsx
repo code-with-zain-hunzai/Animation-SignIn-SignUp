@@ -226,6 +226,21 @@ export function SignUpForm({ onToggleMode }: SignUpFormProps) {
             )}
           </div>
 
+          <Button
+            type="submit"
+            className="w-full h-12 text-lg"
+            disabled={isSubmitting || !isValid}
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Creating Account...
+              </>
+            ) : (
+              "Create Account"
+            )}
+          </Button>
+
           <div className="space-y-2">
             <div className="flex items-center space-x-2">
               <Checkbox
@@ -256,21 +271,6 @@ export function SignUpForm({ onToggleMode }: SignUpFormProps) {
               </p>
             )}
           </div>
-
-          <Button
-            type="submit"
-            className="w-full h-12 text-lg"
-            disabled={isSubmitting || !isValid}
-          >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Creating Account...
-              </>
-            ) : (
-              "Create Account"
-            )}
-          </Button>
         </form>
 
         <div className="text-center">
@@ -283,7 +283,7 @@ export function SignUpForm({ onToggleMode }: SignUpFormProps) {
           >
             Sign In
           </Button>
-        </div>  
+        </div>
       </div>
     </Card>
   );
